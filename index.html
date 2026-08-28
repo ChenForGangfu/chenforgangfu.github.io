@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台北市內湖區港富里里長候選人 陳彥良 競選官網 - 智慧社區 × 樂齡共好 × 在地經濟 × 宜居生活</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-navy: #0f2b48;
+            --primary-blue: #1d5288;
+            --accent-orange: #ff5722;
+            --accent-yellow: #ffb703;
+            --accent-green: #10b981;
+            --accent-purple: #8b5cf6;
+            --line-color: #06C755;
+            --fb-color: #1877F2;
+            --bg-light: #f0f4f8;
+            --text-dark: #1e293b;
+            --text-muted: #475569;
+            --border-color: #cbd5e1;
+            --shadow-sm: 0 4px 10px rgba(0,0,0,0.06);
+            --shadow-md: 0 10px 20px rgba(0,0,0,0.1);
+            --shadow-lg: 0 20px 30px rgba(0,0,0,0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        /* 頂部導覽列 */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--primary-navy);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            color: var(--accent-orange);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.8rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-orange);
+        }
+
+        /* 按鈕樣式 */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.8rem;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff5722, #ff8c42);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(255, 87, 34, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 20px rgba(255, 87, 34, 0.5);
+        }
+
+        .btn-line {
+            background-color: var(--line-color);
+            color: #fff !important;
+            box-shadow: 0 4px 12px rgba(6, 199, 85, 0.3);
+        }
+
+        .btn-fb {
+            background-color: var(--fb-color);
+            color: #fff !important;
+            box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3);
+        }
+
+        .btn-line:hover, .btn-fb:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.08);
+        }
+
+        /* 主視覺 (Hero) */
+        .hero {
+            background: linear-gradient(135deg, rgba(15, 43, 72, 0.92) 0%, rgba(29, 82, 136, 0.88) 100%), 
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            color: #fff;
+            padding: 5.5rem 1.5rem 7.5rem;
+            text-align: center;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 93%, 0 100%);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(90deg, #ff5722, #ffb703);
+            color: #fff;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.6rem;
+            color: var(--accent-yellow);
+            font-weight: 900;
+            margin-bottom: 1.2rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 850px;
+            margin: 0 auto 2.5rem;
+            color: #f1f5f9;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        /* 區塊標題 */
+        section {
+            padding: 4.5rem 1.5rem;
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-subtitle {
+            color: var(--accent-orange);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-navy);
+        }
+
+        /* 候選人簡介與【1. 學經歷字放大、顏色活潑鮮明】 */
+        .candidate-card {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            border: 3px solid #e2e8f0;
+        }
+
+        .candidate-img-box {
+            position: relative;
+            min-height: 480px;
+        }
+
+        .candidate-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .candidate-info {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .candidate-quote {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #0284c7;
+            background: #e0f2fe;
+            border-left: 6px solid #0284c7;
+            padding: 1rem 1.2rem;
+            border-radius: 0 12px 12px 0;
+            margin: 1rem 0 2rem;
+        }
+
+        .exp-section-title {
+            font-size: 1.35rem;
+            font-weight: 900;
+            margin-top: 1rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        /* 放大並加上活潑高對比色彩 */
+        .profile-tags {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag-edu {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            color: #ffffff;
+            padding: 0.6rem 1.2rem;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .tag-exp {
+            background: linear-gradient(135deg, #00b4db, #0083b0);
+            color: #ffffff;
+            padding: 0.6rem 1.2rem;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(0, 180, 219, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        /* 【2. 競選政見顏色鮮艷活潑】 */
+        .policy-group-title {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: #ffffff;
+            padding: 0.8rem 1.5rem;
+            border-radius: 12px;
+            margin: 3rem 0 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .group-theme-1 { background: linear-gradient(135deg, #10b981, #059669); } /* 智慧社區-鮮綠 */
+        .group-theme-2 { background: linear-gradient(135deg, #f59e0b, #d97706); } /* 樂齡友善-活力黃 */
+        .group-theme-3 { background: linear-gradient(135deg, #3b82f6, #1d4ed8); } /* 地方經濟-科技藍 */
+        .group-theme-4 { background: linear-gradient(135deg, #8b5cf6, #6d28d9); } /* 宜居社區-夢幻紫 */
+
+        .policies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .policy-card {
+            border-radius: 16px;
+            padding: 1.8rem;
+            box-shadow: var(--shadow-sm);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .policy-card:hover {
+            top: -6px;
+            box-shadow: var(--shadow-md);
+            transform: scale(1.01);
+        }
+
+        /* 各大政見繽紛配色卡片 */
+        .card-theme-1 { background-color: #ecfdf5; border-color: #a7f3d0; }
+        .card-theme-2 { background-color: #fffbeb; border-color: #fde68a; }
+        .card-theme-3 { background-color: #eff6ff; border-color: #bfdbfe; }
+        .card-theme-4 { background-color: #f5f3ff; border-color: #ddd6fe; }
+
+        .policy-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .policy-card-num {
+            width: 40px;
+            height: 40px;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+        }
+
+        .num-1 { background-color: #059669; }
+        .num-2 { background-color: #d97706; }
+        .num-3 { background-color: #1d4ed8; }
+        .num-4 { background-color: #6d28d9; }
+
+        .policy-card h4 {
+            font-size: 1.25rem;
+            color: var(--primary-navy);
+            font-weight: 900;
+        }
+
+        .policy-detail-list {
+            list-style: none;
+            margin-top: 0.8rem;
+            font-size: 1rem;
+        }
+
+        .policy-detail-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.6rem;
+            color: #334155;
+            font-weight: 500;
+        }
+
+        .policy-detail-list li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .policy-table-mini {
+            width: 100%;
+            margin-top: 0.8rem;
+            font-size: 0.95rem;
+            border-collapse: collapse;
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .policy-table-mini td {
+            padding: 0.6rem 0.8rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .policy-table-mini td:first-child {
+            background-color: #f1f5f9;
+            font-weight: 700;
+            color: var(--primary-navy);
+            width: 35%;
+        }
+
+        .target-box {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #0f766e;
+            border-left: 4px solid #14b8a6;
+        }
+
+        /* 【3. 四大政見願景改為活潑樣式】 */
+        .vision-container {
+            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+            border-radius: 24px;
+            padding: 3.5rem 2rem;
+            box-shadow: var(--shadow-md);
+            border: 2px solid #e2e8f0;
+        }
+
+        .vision-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .vision-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2.2rem 1.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 2px solid #f1f5f9;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vision-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+        }
+
+        .vision-card-1::before { background: linear-gradient(90deg, #10b981, #34d399); }
+        .vision-card-2::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+        .vision-card-3::before { background: linear-gradient(90deg, #ff5722, #ff8c42); }
+        .vision-card-4::before { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+
+        .vision-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .vision-icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: #ffffff;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .v-icon-1 { background: linear-gradient(135deg, #10b981, #059669); }
+        .v-icon-2 { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .v-icon-3 { background: linear-gradient(135deg, #ff5722, #e64a19); }
+        .v-icon-4 { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+
+        .vision-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary-navy);
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+
+        .vision-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .vision-banner {
+            text-align: center;
+            max-width: 850px;
+            margin: 2.5rem auto 0;
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg, #ff5722, #ff8c42);
+            color: #ffffff;
+            border-radius: 50px;
+            font-size: 1.25rem;
+            font-weight: 900;
+            box-shadow: 0 6px 20px rgba(255, 87, 34, 0.3);
+        }
+
+        /* 社群專區 */
+        .social-section {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 4rem 2rem;
+            box-shadow: var(--shadow-sm);
+            border: 2px solid #e2e8f0;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .social-card {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 2px solid #e2e8f0;
+            transition: transform 0.3s ease;
+        }
+
+        .social-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .qr-box {
+            width: 160px;
+            height: 160px;
+            background: #ffffff;
+            border: 2px dashed #cbd5e1;
+            border-radius: 16px;
+            margin: 1.5rem auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .qr-box i {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-blue);
+        }
+
+        /* 生活資訊表格 */
+        .table-container {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            border: 2px solid #e2e8f0;
+        }
+
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .custom-table th {
+            background-color: var(--primary-navy);
+            color: #fff;
+            padding: 1.2rem 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .custom-table td {
+            padding: 1.2rem 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 1.05rem;
+        }
+
+        .custom-table tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        /* 表單樣式 */
+        .form-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: var(--shadow-md);
+            border: 2px solid #e2e8f0;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 2px solid #cbd5e1;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: #f8fafc;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-orange);
+            background-color: #fff;
+            box-shadow: 0 0 0 4px rgba(255, 87, 34, 0.15);
+        }
+
+        /* 懸浮按鈕 (FAB) */
+        .floating-social {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            z-index: 9999;
+        }
+
+        .fab-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.8rem;
+            box-shadow: var(--shadow-lg);
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .fab-btn:hover {
+            transform: scale(1.15);
+        }
+
+        .fab-line { background-color: var(--line-color); }
+        .fab-fb { background-color: var(--fb-color); }
+
+        /* 頁尾 */
+        footer {
+            background-color: var(--primary-navy);
+            color: #cbd5e1;
+            padding: 4rem 1.5rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            padding-bottom: 2.5rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-brand h2 {
+            color: #fff;
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-bottom {
+            max-width: 1240px;
+            margin: 2rem auto 0;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        /* 響應式 */
+        @media (max-width: 992px) {
+            .candidate-card { grid-template-columns: 1fr; }
+            .form-grid { grid-template-columns: 1fr; }
+            .form-group.full-width { grid-column: span 1; }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero-subtitle { font-size: 1.3rem; }
+            .nav-links { display: none; }
+            .section-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 頂部導覽列 -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fa-solid fa-building-user"></i> 陳彥良 ‧ 港富里里長候選人
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">關於彥良</a></li>
+                <li><a href="#policies">15項行動政策</a></li>
+                <li><a href="#vision">四大願景</a></li>
+                <li><a href="#community">里民社群</a></li>
+                <li><a href="#info">生活資訊</a></li>
+                <li><a href="#contact">線上反映</a></li>
+            </ul>
+            <a href="https://line.me" target="_blank" class="btn btn-line">
+                <i class="fa-brands fa-line"></i> 加入 LINE 帳號
+            </a>
+        </nav>
+    </header>
+
+    <!-- 主視覺區塊 (Hero) -->
+    <section class="hero">
+        <div class="hero-badge"><i class="fa-solid fa-check-to-slot"></i> 台北市內湖區港富里里長候選人</div>
+        <h1>陳彥良 ‧ 創新思維 ‧ 實踐共好</h1>
+        <div class="hero-subtitle">智慧社區 × 樂齡共好 × 在地經濟 × 宜居生活</div>
+        <p>港富里位於內湖生活圈核心，面對數位化時代與高齡社會來臨，彥良提出 15 項具體政策行動方案，以創新思維與社區合作力量，打造更便利、安全、幸福的港富里！</p>
+        <div class="hero-buttons">
+            <a href="https://line.me" target="_blank" class="btn btn-line"><i class="fa-brands fa-line"></i> LINE 社群</a>
+            <a href="https://facebook.com" target="_blank" class="btn btn-fb"><i class="fa-brands fa-facebook"></i> FB 粉絲專頁</a>
+            <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> 線上反映建言</a>
+        </div>
+    </section>
+
+    <!-- 候選人介紹 (學經歷放大與鮮豔活潑色彩) -->
+    <section id="about">
+        <div class="section-header">
+            <div class="section-subtitle">ABOUT YAN-LIANG CHEN</div>
+            <h2 class="section-title">關於候選人 陳彥良</h2>
+        </div>
+        <div class="candidate-card">
+            <div class="candidate-img-box">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="陳彥良形象照" class="candidate-img">
+            </div>
+            <div class="candidate-info">
+                <h3 style="font-size: 2.5rem; color: var(--primary-navy); font-weight: 900;">陳彥良 <span style="font-size: 1.2rem; color: var(--text-muted); font-weight: normal;">(港富里里長候選人)</span></h3>
+                <div class="candidate-quote">
+                    「具備行銷管理碩士背景與實務經驗，以創新行動力為港富里注入嶄新活力！」
+                </div>
+
+                <!-- 學歷區塊：放大與活潑橘色素色包裝 -->
+                <div class="exp-section-title" style="color: #ff5722;">
+                    <i class="fa-solid fa-graduation-cap"></i> 扎實完整學歷
+                </div>
+                <div class="profile-tags">
+                    <span class="tag-edu"><i class="fa-solid fa-certificate"></i> 德明財經科技大學 行銷管理系碩士畢業</span>
+                    <span class="tag-edu"><i class="fa-solid fa-user-graduate"></i> 德明財經科技大學 企管系畢業</span>
+                    <span class="tag-edu">開南商工電子科畢業</span>
+                    <span class="tag-edu">麗山國中畢業</span>
+                    <span class="tag-edu">內湖國小畢業</span>
+                </div>
+
+                <!-- 經歷區塊：放大與鮮豔科技藍色彩 -->
+                <div class="exp-section-title" style="color: #0083b0;">
+                    <i class="fa-solid fa-briefcase"></i> 豐富實務經歷
+                </div>
+                <div class="profile-tags">
+                    <span class="tag-exp"><i class="fa-solid fa-chalkboard-user"></i> 勞動部職訓課程講師</span>
+                    <span class="tag-exp"><i class="fa-solid fa-building"></i> 五福旅行社分公司負責人</span>
+                    <span class="tag-exp">五福旅行社 獎勵旅遊部 業務副理</span>
+                    <span class="tag-exp">燦星旅行社 網銷部 資深業務</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 15項競選政見行動方案 (色彩鮮豔活潑化) -->
+    <section id="policies">
+        <div class="section-header">
+            <div class="section-subtitle">POLICY ACTION PLAN</div>
+            <h2 class="section-title">15項具體政策行動方案</h2>
+            <p style="color: var(--text-muted); margin-top: 0.5rem; font-size: 1.1rem; font-weight: 500;">以「智慧治理、樂齡友善、商圈活化、社區共好」為核心理念</p>
+        </div>
+
+        <!-- 一、智慧社區政策 -->
+        <div class="policy-group-title group-theme-1">
+            <i class="fa-solid fa-laptop-code"></i> 一、智慧社區政策（4項）
+        </div>
+        <div class="policies-grid">
+            <div class="policy-card card-theme-1">
+                <div class="policy-card-header">
+                    <div class="policy-card-num num-1">1</div>
+                    <h4>打造港富里里民電商平台</h4>
+                </div>
+                <p style="color: var(--text-muted);">建立社區專屬電商平台，協助里民販售商品、手作及特色產品，推動社區微型創業與共享經濟。</p>
+                <table class="policy-table-mini">
+                    <tr><td>社區電商平台</td><td>建立港富里線上商城</td></tr>
+                    <tr><td>商品上架輔導</td><td>協助里民販售手作與特色商品</td></tr>
+                    <tr><td>社群團購</td><td>建立社區團購機制</td></tr>
+                    <tr><td>品牌打造</td><td>建立「港富好物」品牌</td></tr>
+                </table>
+                <div class="target-box">
+                    🎯 政策目標：推動社區數位經濟、協助里民創造副收入、建立港富里特色品牌。
+                </div>
+            </div>
+
+            <div class="policy-card card-theme-1">
+                <div class="policy-card-header">
+                    <div class="policy-card-num num-1">2</div>
+                    <h4>建立港富里智慧社區社群</h4>
+                </div>
+                <p style="color: var(--text-muted);">透過數位工具建立里民資訊平台，整合社區公告、活動資訊與里民服務。</p>
+                <ul class="policy-detail-list">
+                    <li>里內公告與活動通知</li>
+                    <li>社區問題通報系統</li>
+                    <li>公共設施線上報修</li>
+                    <li>社區活動報名服務</li>
+                </ul>
+            </div>
+
+            <div class="policy-card card-theme-1">
+                <div class="policy-card-header">
+                    <div class="policy-card-num num-1">3</div>
+                    <h4>推動社區AI數位學習課程</h4>
+                </div>
+                <p style="color: var(--text-muted);">邀請專業講師辦理AI與數位工具課程，協助里民提升數位能力。</p>
+                <ul class="policy-detail-list">
+                    <li>AI工具實務應用</li>
+                    <li>實用社群行銷技巧</li>
+                    <li>手機拍攝與短影音剪輯</li>
+                    <li>網路安全與防詐宣導</li>
+                </ul>
+            </div>
+
+            <div class="policy-card card-theme-1">
+                <div class="policy-card-header">
+                    <div class="policy-card-num num-1">4</div>
+                    <h4>打造智慧里民服務平台</h4>
+                </div>
+                <p style="color: var(--text-muted);">整合里辦公處服務流程，讓里民可透過線上方式迅速完成多項服務申請。</p>
+            </div>
+        </div>
+
+        <!-- 二、樂齡友善政策 -->
+        <div class="policy-group-title group-theme-2">
+            <i class="fa-solid fa-heart-pulse"></i> 二、樂齡友善政策（4項）
+        </div>
+        <div class="policies-grid">
+            <div class="policy-card card-theme-2">
+                <div class="policy-card-header">
+                    <div class="policy-card-num num-2">1</div>
+                    <h4>打造港富里樂齡學習據點</h4>
+                </div>
+                <p style="color: var(--text-muted);">建立銀髮學習中心，讓長者有固定學習與交流空間。</p>
+                <table class="policy-table-mini">
+                    <tr><td>健康促進</td><td>銀髮運動、健康講座</td></tr>
+                    <tr><td>興趣課程</td><td>書法、手作、音樂活動</td></tr>
+                    <tr><td>數位學習</td><td>智慧手機與LINE應用</td></tr>
+                    <tr><td>社交活動</td><td>社區聚會與交流</td></tr>
+                </table>
+            </div>
+
+            <div class="policy-card card-theme-2">
+                <div class="policy-card-header">
+                    <div class="policy-card-num num-2">2</div>
+                    <h4>推動銀髮健康促進活動</h4>
+                </div>
+                <p style="color: var(--text-muted);">定期舉辦健康講座、運動課程及健康檢查諮詢活動。</p>
+            </div>
+
+            <div class="policy-card card-theme-2">
+                <div class="policy-card-header">
+                    <div class="policy-card-num num-2">3</div>
+                    <h4>建立銀髮志工服務團</h4>
+                </div>
+                <p style="color: var(--text-muted);">邀請退休長者參與志工服務，發揮專長並促進社區榮譽參與。</p>
+            </div>
+
+            <div class="policy-card card-theme-2">
+                <div class="policy-card-header">
+                    <div class="policy-card-num num-2">4</div>
+                    <h4>推動世代共學活動</h4>
+                </div>
+                <p style="color: var(--text-muted);">結合親子與長者活動，建立跨世代交流的溫馨社區文化。</p>
+            </div>
+        </div>
+
+        <!-- 三、地方經濟政策 -->
+        <div class="policy-group-title group-theme-3">
+            <i class="fa-solid fa-store"></i> 三、地方經濟政策（4項）
+        </div>
+        <div class="policies-grid">
+            <div class="policy-card card-theme-3">
+                <div class="policy-card-header">
+                    <div class="policy-card-num num-3">1</div>
+                    <h4>提升737美食街能見度</h4>
+                </div>
+                <p style="color: var(--text-muted);">整合地方商家資源，運用行銷專業推動美食街品牌行銷與形象升級。</p>
+            </div>
+
+            <div class="policy-card card-theme-3">
+                <div class="policy-card-header">
+                    <div class="policy-card-num num-3">2</div>
+                    <h4>打造港富里商圈導覽社群地圖</h4>
+                </div>
+                <p style="color: var(--text-muted);">整合餐飲、商店與生活服務，製作線上與實體社區導覽地圖。</p>
+            </div>
+
+            <div class="policy-card card-theme-3">
+                <div class="policy-card-header">
+                    <div class="policy-card-num num-3">3</div>
+                    <h4>舉辦社區市集活動</h4>
+                </div>
+                <p style="color: var(--text-muted);">定期舉辦社區文創與特色市集，讓里民與商家共同參與帶動商機。</p>
+            </div>
+
+            <div class="policy-card card-theme-3">
+                <div class="policy-card-header">
+                    <div class="policy-card-num num-3">4</div>
+                    <h4>推動青年創業交流平台</h4>
+                </div>
+                <p style="color: var(--text-muted);">鼓勵年輕人在地創業，建立青年交流與創業經驗分享活動。</p>
+            </div>
+        </div>
+
+        <!-- 四、宜居社區政策 -->
+        <div class="policy-group-title group-theme-4">
+            <i class="fa-solid fa-house-chimney-window"></i> 四、宜居社區政策（3項）
+        </div>
+        <div class="policies-grid">
+            <div class="policy-card card-theme-4">
+                <div class="policy-card-header">
+                    <div class="policy-card-num num-4">1</div>
+                    <h4>強化社區安全與照明</h4>
+                </div>
+                <p style="color: var(--text-muted);">提升巷弄照明設備並加強社區安全巡守，確實降低社區治安死角。</p>
+            </div>
+
+            <div class="policy-card card-theme-4">
+                <div class="policy-card-header">
+                    <div class="policy-card-num num-4">2</div>
+                    <h4>打造友善親子活動空間</h4>
+                </div>
+                <p style="color: var(--text-muted);">推動多元親子活動與社區文化活動，讓家庭更願意參與社區生活。</p>
+            </div>
+
+            <div class="policy-card card-theme-4">
+                <div class="policy-card-header">
+                    <div class="policy-card-num num-4">3</div>
+                    <h4>推動社區環境美化</h4>
+                </div>
+                <p style="color: var(--text-muted);">透過社區彩繪、綠化佈置與藝術裝置，大幅提升港富里居住品質。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 未來四大願景 (活潑立體動態卡片樣式) -->
+    <section id="vision">
+        <div class="vision-container">
+            <div class="section-header">
+                <div class="section-subtitle">FUTURE VISION</div>
+                <h2 class="section-title">港富里未來發展四大願景</h2>
+            </div>
+            <div class="vision-grid">
+                <div class="vision-card vision-card-1">
+                    <div class="vision-icon-circle v-icon-1">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3>智慧社區</h3>
+                    <p>數位科技提升生活便利</p>
+                </div>
+
+                <div class="vision-card vision-card-2">
+                    <div class="vision-icon-circle v-icon-2">
+                        <i class="fa-solid fa-hands-holding-child"></i>
+                    </div>
+                    <h3>樂齡友善</h3>
+                    <p>長者健康學習共融</p>
+                </div>
+
+                <div class="vision-card vision-card-3">
+                    <div class="vision-icon-circle v-icon-3">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <h3>商圈經濟</h3>
+                    <p>737美食街成為台北城市品牌</p>
+                </div>
+
+                <div class="vision-card vision-card-4">
+                    <div class="vision-icon-circle v-icon-4">
+                        <i class="fa-solid fa-house-medical"></i>
+                    </div>
+                    <h3>宜居生活</h3>
+                    <p>安全舒適的社區環境</p>
+                </div>
+            </div>
+
+            <div class="vision-banner">
+                🚀 透過 15 項政策推動，打造智慧化、友善化與永續發展的模範港富里！
+            </div>
+        </div>
+    </section>
+
+    <!-- 社區社群專區 -->
+    <section id="community">
+        <div class="social-section">
+            <div class="section-header">
+                <div class="section-subtitle">JOIN OUR COMMUNITY</div>
+                <h2 class="section-title">加入港富里線上交流圈</h2>
+            </div>
+            <div class="social-grid">
+                <div class="social-card">
+                    <i class="fa-brands fa-line" style="font-size: 3.5rem; color: var(--line-color);"></i>
+                    <h3 style="margin-top: 1rem; color: var(--primary-navy); font-weight: 900;">LINE 里民交流群</h3>
+                    <p style="color: var(--text-muted); font-size: 1rem; margin-top: 0.5rem;">即時反映問題、獲得即時里政公告與緊急通知。</p>
+                    <div class="qr-box">
+                        <i class="fa-solid fa-qrcode"></i>
+                        <span>[ LINE QRCode 圖檔 ]</span>
+                    </div>
+                    <a href="https://line.me" target="_blank" class="btn btn-line" style="width: 100%; padding: 0.9rem;"><i class="fa-brands fa-line"></i> 一鍵加入 LINE 社群</a>
+                </div>
+
+                <div class="social-card">
+                    <i class="fa-brands fa-facebook" style="font-size: 3.5rem; color: var(--fb-color);"></i>
+                    <h3 style="margin-top: 1rem; color: var(--primary-navy); font-weight: 900;">FB 粉絲專頁</h3>
+                    <p style="color: var(--text-muted); font-size: 1rem; margin-top: 0.5rem;">追蹤陳彥良里政動態、社區活動花絮與影音發表。</p>
+                    <div class="qr-box">
+                        <i class="fa-solid fa-qrcode"></i>
+                        <span>[ FB QRCode 圖檔 ]</span>
+                    </div>
+                    <a href="https://facebook.com" target="_blank" class="btn btn-fb" style="width: 100%; padding: 0.9rem;"><i class="fa-brands fa-facebook"></i> 按讚追蹤 FB 專頁</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 港富里生活資訊 -->
+    <section id="info">
+        <div class="section-header">
+            <div class="section-subtitle">LOCAL INFORMATION</div>
+            <h2 class="section-title">港富里生活資訊指南</h2>
+        </div>
+        <div class="table-container">
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">項目</th>
+                        <th>詳細說明 / 時間服務</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong style="color: var(--primary-navy);"><i class="fa-solid fa-trash-can" style="color: var(--accent-orange); margin-right: 0.5rem;"></i> 垃圾車收運時間</strong></td>
+                        <td>每週一、二、四、五、六 晚間固定時間收運（詳細站點依環保局規定）</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: var(--primary-navy);"><i class="fa-solid fa-building-shield" style="color: var(--accent-orange); margin-right: 0.5rem;"></i> 轄區派出所</strong></td>
+                        <td>台北市政府警察局內湖分局（緊急報案電話：110）</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: var(--primary-navy);"><i class="fa-solid fa-kit-medical" style="color: var(--accent-orange); margin-right: 0.5rem;"></i> 防災避難場所</strong></td>
+                        <td>內湖區指定防災公園及在地指定避難學校/里民活動中心</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 線上客服表單 -->
+    <section id="contact">
+        <div class="section-header">
+            <div class="section-subtitle">ONLINE SERVICE</div>
+            <h2 class="section-title">里上客服與意見諮詢</h2>
+        </div>
+        <div class="form-card">
+            <form id="feedbackForm" onsubmit="alert('感謝您的建議！陳彥良競選團隊將迅速進行追蹤處理。'); return false;">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">您的姓名 *</label>
+                        <input type="text" id="name" class="form-control" required placeholder="請輸入您的姓名">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">聯絡電話 *</label>
+                        <input type="tel" id="phone" class="form-control" required placeholder="例如：0912-345-678">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="category">建議類型</label>
+                        <select id="category" class="form-control">
+                            <option value="smart">智慧社區 / 里民電商建言</option>
+                            <option value="elder">樂齡友善 / 銀髮服務</option>
+                            <option value="business">737美食街 / 在地經濟商圈</option>
+                            <option value="traffic">交通、照明與路面安全</option>
+                            <option value="other">其他里政建議</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="message">具體建議說明 *</label>
+                        <textarea id="message" class="form-control" rows="4" required placeholder="請詳細說明您遇到的問題或建議地點..."></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="photo">現場照片上傳（方便團隊迅速查核）</label>
+                        <input type="file" id="photo" class="form-control" accept="image/*">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem; padding: 1rem; font-size: 1.1rem;"><i class="fa-solid fa-paper-plane"></i> 送出意見反映</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 右下角懸浮按鈕 (FAB) -->
+    <div class="floating-social">
+        <a href="https://line.me" target="_blank" class="fab-btn fab-line" title="加入 LINE 群組">
+            <i class="fa-brands fa-line"></i>
+        </a>
+        <a href="https://facebook.com" target="_blank" class="fab-btn fab-fb" title="追蹤 Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+        </a>
+    </div>
+
+    <!-- 頁尾 -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2>台北市內湖區港富里里長候選人 陳彥良 競選團隊</h2>
+                <p>智慧社區 × 樂齡共好 × 在地經濟 × 宜居生活</p>
+            </div>
+            <div>
+                <p><i class="fa-solid fa-phone" style="margin-right: 0.5rem; color: var(--accent-orange);"></i> 服務專線：(02) XXXX-XXXX</p>
+                <p style="margin-top: 0.5rem;"><i class="fa-solid fa-location-dot" style="margin-right: 0.5rem; color: var(--accent-orange);"></i> 競選服務處：台北市內湖區[填寫服務處地址]</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 港富里里長候選人 陳彥良競選團隊 版權所有</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+

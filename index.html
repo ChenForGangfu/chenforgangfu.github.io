@@ -40,6 +40,44 @@
             background-color: var(--bg-light);
         }
 
+        /* 頂部形象 Banner */
+        .top-banner {
+            width: 100%;
+            line-height: 0;
+            position: relative;
+            height: clamp(240px, 40vw, 580px);
+            overflow: hidden;
+        }
+
+        .top-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .top-banner::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 50px;
+            max-height: 25%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.12) 100%);
+            pointer-events: none;
+        }
+
+        .banner-gap {
+            height: 56px;
+            background-color: var(--bg-light);
+        }
+
+        @media (max-width: 768px) {
+            .banner-gap { height: 32px; }
+        }
+
         /* 頂部導覽列 */
         header {
             position: sticky;
@@ -136,9 +174,10 @@
 
         /* 主視覺 (Hero) */
         .hero {
-            background: linear-gradient(135deg, rgba(15, 43, 72, 0.92) 0%, rgba(29, 82, 136, 0.88) 100%), 
-                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            background: linear-gradient(160deg, var(--primary-navy) 0%, var(--primary-blue) 100%);
             color: #fff;
+            max-width: none;
+            margin: 0;
             padding: 5.5rem 1.5rem 7.5rem;
             text-align: center;
             position: relative;
@@ -757,13 +796,19 @@
                 <li><a href="#policies">15項行動政策</a></li>
                 <li><a href="#community">里民社群</a></li>
                 <li><a href="#info">生活資訊</a></li>
-                <li><a href="#contact">線上反映</a></li>
             </ul>
             <a href="https://line.me/R/ti/p/@157qeahe" target="_blank" class="btn btn-line">
                 <i class="fa-brands fa-line"></i> 加入 LINE 帳號
             </a>
         </nav>
     </header>
+
+    <!-- 頂部形象 Banner -->
+    <div class="top-banner">
+        <img src="images/banner1.png" alt="港富里里長候選人 陳彥良‧創新思維‧實踐共好 智慧社區×樂齡共好×在地經濟×宜居生活">
+    </div>
+
+    <div class="banner-gap"></div>
 
     <!-- 主視覺區塊 (Hero) -->
     <section class="hero">
@@ -786,12 +831,14 @@
         </div>
         <div class="candidate-card">
             <div class="candidate-img-box">
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="陳彥良形象照" class="candidate-img">
+                <img src="images/professional.png" alt="陳彥良形象照" class="candidate-img">
             </div>
             <div class="candidate-info">
                 <h3 style="font-size: 2.5rem; color: var(--primary-navy); font-weight: 900;">陳彥良 <span style="font-size: 1.2rem; color: var(--text-muted); font-weight: normal;">(港富里里長候選人)</span></h3>
                 <div class="candidate-quote">
-                    港富土生土長青年，具備行銷管理碩士背景與實務經驗，以創新行動力回饋家鄉、創造港富新活力！
+                    港富土生土長青年<br />
+                    具備行銷管理碩士背景與實務經驗<br />
+                    以創新行動力回饋家鄉、創造港富新活力！
                 </div>
 
                 <!-- 學歷區塊：放大與活潑橘色素色包裝 -->
@@ -1075,6 +1122,18 @@
                         <img src="qrcode/fb-qrcode.png" alt="Facebook 粉絲專頁 QRCode" style="width: 100%; height: 100%; object-fit: contain;">
                     </div>
                     <a href="https://www.facebook.com/share/19dhV7iWk3/?mibextid=wwXIfr" target="_blank" class="btn btn-fb" style="width: 100%; padding: 0.9rem;"><i class="fa-brands fa-facebook"></i> 按讚追蹤 FB 專頁</a>
+                </div>
+
+                <!-- 線上反映建言：預留區塊，未來連結 Google 表單，目前先用 # 佔位 -->
+                <div class="social-card">
+                    <i class="fa-solid fa-comment-dots" style="font-size: 3.5rem; color: var(--accent-orange);"></i>
+                    <h3 style="margin-top: 1rem; color: var(--primary-navy); font-weight: 900;">線上反映建言</h3>
+                    <p style="color: var(--text-muted); font-size: 1rem; margin-top: 0.5rem;">里民的聲音 彥良用心聽見<br />里民的建言 彥良用行動實踐</p>
+                    <div class="qr-box">
+                        <i class="fa-solid fa-file-circle-plus"></i>
+                        <span>Google 表單建置中</span>
+                    </div>
+                    <a href="#" class="btn btn-primary" style="width: 100%; padding: 0.9rem;" onclick="alert('Google 表單連結建置中，敬請期待！'); return false;"><i class="fa-solid fa-paper-plane"></i> 填寫線上反映表單</a>
                 </div>
             </div>
         </div>

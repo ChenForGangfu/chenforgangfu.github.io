@@ -129,6 +129,25 @@
             color: var(--accent-orange);
         }
 
+        /* 漢堡選單按鈕（預設桌機隱藏） */
+        .nav-toggle {
+            display: none;
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            border: none;
+            background: var(--bg-light);
+            color: var(--primary-navy);
+            font-size: 1.3rem;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .nav-toggle:hover {
+            background: #e2e8f0;
+        }
+
         /* 按鈕樣式 */
         .btn {
             display: inline-flex;
@@ -710,6 +729,125 @@
             }
         }
 
+        /* 活動花絮相片牆 */
+        .gallery-group {
+            margin-bottom: 3rem;
+        }
+
+        .gallery-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .gallery-group-title {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: var(--primary-navy);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .gallery-group-title i {
+            color: var(--accent-orange);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .gallery-thumb {
+            position: relative;
+            aspect-ratio: 4 / 3;
+            border-radius: 14px;
+            overflow: hidden;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .gallery-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-thumb:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-thumb::after {
+            content: '\f00e';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(15, 43, 72, 0.6);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-thumb:hover::after {
+            opacity: 1;
+        }
+
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.92);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            padding: 2rem;
+        }
+
+        .lightbox[hidden] {
+            display: none;
+        }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 24px;
+            right: 28px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            font-size: 1.6rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
         /* 社群專區 */
         .social-section {
             background: #ffffff;
@@ -922,8 +1060,48 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
             .hero-subtitle { font-size: 1.3rem; }
-            .nav-links { display: none; }
             .section-title { font-size: 2rem; }
+
+            .navbar {
+                flex-wrap: wrap;
+            }
+
+            .nav-toggle {
+                display: flex;
+                order: 2;
+                margin-left: 0.75rem;
+            }
+
+            .navbar > .btn-line {
+                order: 1;
+                margin-left: auto;
+            }
+
+            .nav-links {
+                display: none;
+                order: 3;
+                flex-basis: 100%;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                margin-top: 1rem;
+                padding-top: 0.8rem;
+                border-top: 1px solid var(--border-color);
+            }
+
+            .nav-links.nav-links-open {
+                display: flex;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 0.85rem 0.3rem;
+                border-bottom: 1px solid #f1f5f9;
+            }
         }
     </style>
 </head>
@@ -935,11 +1113,15 @@
             <div class="logo">
                 <i class="fa-solid fa-building-user"></i> 陳彥良 ‧ 港富里里長候選人
             </div>
-            <ul class="nav-links">
+            <button type="button" class="nav-toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false" aria-controls="navLinks">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#about">關於彥良</a></li>
                 <li><a href="#vision">四大願景</a></li>
                 <li><a href="#policies">15項行動政策</a></li>
                 <li><a href="#events">活動資訊</a></li>
+                <li><a href="#gallery">活動花絮</a></li>
                 <li><a href="#community">里民社群</a></li>
                 <li><a href="#info">生活資訊</a></li>
             </ul>
@@ -1320,6 +1502,43 @@
         </div>
     </section>
 
+    <!-- 活動花絮相片牆 -->
+    <section id="gallery">
+        <div class="section-header">
+            <div class="section-subtitle">EVENT HIGHLIGHTS</div>
+            <h2 class="section-title">港富里活動花絮</h2>
+        </div>
+
+        <div class="gallery-group">
+            <h3 class="gallery-group-title"><i class="fa-solid fa-images"></i>樂齡銀髮手工藝課程</h3>
+            <div class="gallery-grid">
+                <button type="button" class="gallery-thumb" data-full="activity_pic/1/S__671662086_0.jpg">
+                    <img src="activity_pic/1/S__671662086_0.jpg" alt="樂齡銀髮手工藝課程照片1">
+                </button>
+                <button type="button" class="gallery-thumb" data-full="activity_pic/1/S__671662087_0.jpg">
+                    <img src="activity_pic/1/S__671662087_0.jpg" alt="樂齡銀髮手工藝課程照片2">
+                </button>
+            </div>
+        </div>
+
+        <div class="gallery-group">
+            <h3 class="gallery-group-title"><i class="fa-solid fa-images"></i>歡樂兒童無人機體驗課程</h3>
+            <div class="gallery-grid">
+                <button type="button" class="gallery-thumb" data-full="activity_pic/2/S__671662083.jpg">
+                    <img src="activity_pic/2/S__671662083.jpg" alt="歡樂兒童無人機體驗課程照片1">
+                </button>
+                <button type="button" class="gallery-thumb" data-full="activity_pic/2/S__671662084.jpg">
+                    <img src="activity_pic/2/S__671662084.jpg" alt="歡樂兒童無人機體驗課程照片2">
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <div id="lightbox" class="lightbox" hidden>
+        <button type="button" class="lightbox-close" aria-label="關閉">&times;</button>
+        <img src="" alt="">
+    </div>
+
     <!-- 社區社群專區 -->
     <section id="community">
         <div class="social-section">
@@ -1499,6 +1718,53 @@
 
     <script>
         (function () {
+            // 手機版導覽列：漢堡選單開關
+            var navToggle = document.getElementById('navToggle');
+            var navLinks = document.getElementById('navLinks');
+            if (navToggle && navLinks) {
+                function closeNav() {
+                    navLinks.classList.remove('nav-links-open');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                    navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                }
+                navToggle.addEventListener('click', function () {
+                    var open = navLinks.classList.toggle('nav-links-open');
+                    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+                    navToggle.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+                });
+                navLinks.querySelectorAll('a').forEach(function (link) {
+                    link.addEventListener('click', closeNav);
+                });
+            }
+
+            // 活動花絮相片牆：點縮圖以燈箱放大檢視
+            var lightbox = document.getElementById('lightbox');
+            if (lightbox) {
+                var lightboxImg = lightbox.querySelector('img');
+                var closeBtn = lightbox.querySelector('.lightbox-close');
+
+                document.querySelectorAll('.gallery-thumb').forEach(function (thumb) {
+                    thumb.addEventListener('click', function () {
+                        lightboxImg.src = thumb.dataset.full;
+                        lightboxImg.alt = thumb.querySelector('img').alt;
+                        lightbox.hidden = false;
+                    });
+                });
+
+                function closeLightbox() {
+                    lightbox.hidden = true;
+                    lightboxImg.src = '';
+                }
+
+                closeBtn.addEventListener('click', closeLightbox);
+                lightbox.addEventListener('click', function (e) {
+                    if (e.target === lightbox) closeLightbox();
+                });
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape' && !lightbox.hidden) closeLightbox();
+                });
+            }
+
             // 每張活動卡片：內容預設收合，統一用「查看活動內容」連結展開，讓卡片預設高度一致
             document.querySelectorAll('.event-note-toggle').forEach(function (toggle) {
                 var note = toggle.nextElementSibling;

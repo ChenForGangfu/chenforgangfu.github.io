@@ -1062,27 +1062,19 @@
             .form-group.full-width { grid-column: span 1; }
         }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .hero-subtitle { font-size: 1.3rem; }
-            .section-title { font-size: 2rem; }
-
+        /* 導覽列：平板寬度就切換成漢堡選單，避免橫向選單擠成一團 */
+        @media (max-width: 1024px) {
             .navbar {
                 flex-wrap: wrap;
             }
 
             .nav-toggle {
                 display: flex;
-                order: 2;
-                margin-left: 0.75rem;
+                margin-left: auto;
             }
 
             .navbar > .btn-line {
                 display: none;
-            }
-
-            .nav-toggle {
-                margin-left: auto;
             }
 
             .nav-links {
@@ -1123,6 +1115,12 @@
                 padding: 0.85rem;
                 border-bottom: none;
             }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero-subtitle { font-size: 1.3rem; }
+            .section-title { font-size: 2rem; }
 
             /* 懸浮 LINE/FB 按鈕縮小並貼邊，避免蓋住文字內容 */
             .floating-social {

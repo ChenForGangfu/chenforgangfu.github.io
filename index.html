@@ -125,6 +125,11 @@
             transition: all 0.3s ease;
         }
 
+        /* 手機選單內的 LINE 按鈕（桌機隱藏，只在手機選單頂端顯示） */
+        .nav-line-item {
+            display: none;
+        }
+
         .nav-links a:hover {
             color: var(--accent-orange);
         }
@@ -1073,7 +1078,10 @@
             }
 
             .navbar > .btn-line {
-                order: 1;
+                display: none;
+            }
+
+            .nav-toggle {
                 margin-left: auto;
             }
 
@@ -1102,6 +1110,53 @@
                 padding: 0.85rem 0.3rem;
                 border-bottom: 1px solid #f1f5f9;
             }
+
+            .nav-line-item {
+                display: block;
+                margin-bottom: 0.8rem;
+            }
+
+            .nav-line-item a.btn-line {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                padding: 0.85rem;
+                border-bottom: none;
+            }
+
+            /* 懸浮 LINE/FB 按鈕縮小並貼邊，避免蓋住文字內容 */
+            .floating-social {
+                bottom: 16px;
+                right: 16px;
+                gap: 10px;
+            }
+
+            .fab-btn {
+                width: 46px;
+                height: 46px;
+                font-size: 1.3rem;
+            }
+
+            /* 頁尾在手機版改直式排列，避免標題被擠壓斷行 */
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-brand h2 {
+                font-size: 1.3rem;
+            }
+
+            /* 生活資訊表格：項目名稱不換行，避免只留單一個字孤立成一行 */
+            .custom-table td:first-child strong {
+                white-space: nowrap;
+            }
+
+            .custom-table th,
+            .custom-table td {
+                padding: 1rem 0.9rem;
+                font-size: 0.95rem;
+            }
         }
     </style>
 </head>
@@ -1117,6 +1172,11 @@
                 <i class="fa-solid fa-bars"></i>
             </button>
             <ul class="nav-links" id="navLinks">
+                <li class="nav-line-item">
+                    <a href="https://line.me/R/ti/p/@157qeahe" target="_blank" class="btn btn-line">
+                        <i class="fa-brands fa-line"></i> 加入 LINE 帳號
+                    </a>
+                </li>
                 <li><a href="#about">關於彥良</a></li>
                 <li><a href="#vision">四大願景</a></li>
                 <li><a href="#policies">15項行動政策</a></li>
@@ -1518,6 +1578,15 @@
                 <button type="button" class="gallery-thumb" data-full="activity_pic/1/S__671662087_0.jpg">
                     <img src="activity_pic/1/S__671662087_0.jpg" alt="樂齡銀髮手工藝課程照片2">
                 </button>
+                <button type="button" class="gallery-thumb" data-full="activity_pic/1/S__671711248_0.jpg">
+                    <img src="activity_pic/1/S__671711248_0.jpg" alt="樂齡銀髮手工藝課程照片3">
+                </button>
+                <button type="button" class="gallery-thumb" data-full="activity_pic/1/S__671711249_0.jpg">
+                    <img src="activity_pic/1/S__671711249_0.jpg" alt="樂齡銀髮手工藝課程照片4">
+                </button>
+                <button type="button" class="gallery-thumb" data-full="activity_pic/1/S__671711250_0.jpg">
+                    <img src="activity_pic/1/S__671711250_0.jpg" alt="樂齡銀髮手工藝課程照片5">
+                </button>
             </div>
         </div>
 
@@ -1529,6 +1598,15 @@
                 </button>
                 <button type="button" class="gallery-thumb" data-full="activity_pic/2/S__671662084.jpg">
                     <img src="activity_pic/2/S__671662084.jpg" alt="歡樂兒童無人機體驗課程照片2">
+                </button>
+                <button type="button" class="gallery-thumb" data-full="activity_pic/2/S__671711243_0.jpg">
+                    <img src="activity_pic/2/S__671711243_0.jpg" alt="歡樂兒童無人機體驗課程照片3">
+                </button>
+                <button type="button" class="gallery-thumb" data-full="activity_pic/2/S__671711244_0.jpg">
+                    <img src="activity_pic/2/S__671711244_0.jpg" alt="歡樂兒童無人機體驗課程照片4">
+                </button>
+                <button type="button" class="gallery-thumb" data-full="activity_pic/2/S__671711245_0.jpg">
+                    <img src="activity_pic/2/S__671711245_0.jpg" alt="歡樂兒童無人機體驗課程照片5">
                 </button>
             </div>
         </div>

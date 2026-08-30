@@ -247,10 +247,17 @@
         }
 
         .hero-buttons {
-            display: flex;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 1.2rem;
-            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-buttons .btn {
+            width: 100%;
+            white-space: normal;
+            line-height: 1.3;
         }
 
         /* 區塊標題 */
@@ -1122,6 +1129,17 @@
             .hero-subtitle { font-size: 1.3rem; }
             .section-title { font-size: 2rem; }
 
+            /* Hero 按鈕手機版改成兩兩一排，避免一排三個一排一個 */
+            .hero-buttons {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 0.9rem;
+            }
+
+            .hero-buttons .btn {
+                padding: 0.75rem 0.8rem;
+                font-size: 0.95rem;
+            }
+
             /* 懸浮 LINE/FB 按鈕縮小並貼邊，避免蓋住文字內容 */
             .floating-social {
                 bottom: 16px;
@@ -1205,8 +1223,8 @@
         <div class="hero-buttons">
             <a href="https://line.me/R/ti/p/@157qeahe" target="_blank" class="btn btn-line"><i class="fa-brands fa-line"></i> LINE 社群</a>
             <a href="https://www.facebook.com/share/19dhV7iWk3/?mibextid=wwXIfr" target="_blank" class="btn btn-fb"><i class="fa-brands fa-facebook"></i> FB 粉絲專頁</a>
-            <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> 線上反映建言</a>
-            <a href="https://forms.gle/LhYSHsf6LiD42NUo7" target="_blank" class="btn" style="background-color: var(--accent-purple); color: #fff;"><i class="fa-solid fa-hand-holding-heart"></i> 港富競選志工招募</a>
+            <a href="https://forms.gle/MLXCJ6wX6omPMW8dA" target="_blank" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> 線上反映建言</a>
+            <a href="https://forms.gle/LhYSHsf6LiD42NUo7" target="_blank" class="btn" style="background-color: var(--accent-purple); color: #fff;"><i class="fa-solid fa-hand-holding-heart"></i> <span style="white-space: nowrap;">港富競選</span> <span style="white-space: nowrap;">志工招募</span></a>
         </div>
     </section>
 

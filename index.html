@@ -17,7 +17,7 @@
     
     <!-- Google Fonts & Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         :root {
@@ -203,7 +203,19 @@
             box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3);
         }
 
-        .btn-line:hover, .btn-fb:hover {
+        .btn-ig {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: #fff !important;
+            box-shadow: 0 4px 12px rgba(220, 39, 67, 0.3);
+        }
+
+        .btn-threads {
+            background-color: #000;
+            color: #fff !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-line:hover, .btn-fb:hover, .btn-ig:hover, .btn-threads:hover {
             transform: translateY(-2px);
             filter: brightness(1.08);
         }
@@ -260,7 +272,7 @@
 
         .hero-buttons {
             display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 1.2rem;
             max-width: 900px;
             margin: 0 auto;
@@ -881,6 +893,79 @@
             border: 2px solid #e2e8f0;
         }
 
+        /* 垃圾車停靠點 (照片對應地點) */
+        .garbage-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            margin: 0.8rem 0 0.5rem;
+        }
+
+        .garbage-spot {
+            background: #fff;
+            border: 2px solid #e2e8f0;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .garbage-photo {
+            position: relative;
+            aspect-ratio: 16 / 10;
+            background: #e2e8f0;
+        }
+
+        .garbage-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .garbage-num {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 2.2rem;
+            height: 2.2rem;
+            border-radius: 50%;
+            background: var(--accent-orange);
+            color: #fff;
+            font-weight: 900;
+            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+        }
+
+        .garbage-text {
+            padding: 0.8rem 1rem 1rem;
+        }
+
+        .garbage-time {
+            color: var(--accent-orange);
+            font-weight: 900;
+            font-size: 1.1rem;
+        }
+
+        .garbage-addr {
+            color: var(--primary-navy);
+            font-weight: 700;
+            margin-top: 0.3rem;
+            line-height: 1.5;
+        }
+
+        .garbage-note {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 0.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .garbage-grid { grid-template-columns: 1fr; }
+        }
+
         .social-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -1041,6 +1126,114 @@
         .fab-line { background-color: var(--line-color); }
         .fab-fb { background-color: var(--fb-color); }
 
+        .fab-ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .fab-threads { background-color: #000; }
+
+        /* 分享按鈕：與社群圓鈕同尺寸，使用網站主色橘色漸層 */
+        .share-wrap {
+            position: relative;
+        }
+
+        .fab-share {
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            background: linear-gradient(135deg, #ff5722, #ff8c42);
+            box-shadow: 0 6px 18px rgba(255, 87, 34, 0.45);
+        }
+
+        .fab-share[aria-expanded="true"] {
+            box-shadow: 0 0 0 3px #fff, 0 6px 18px rgba(255, 87, 34, 0.45);
+        }
+
+        /* 分享選單：從按鈕左側展開，不遮住社群按鈕 */
+        .share-panel {
+            position: absolute;
+            right: calc(100% + 14px);
+            bottom: 0;
+            width: 250px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            border: 2px solid #e2e8f0;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(10px) scale(0.97);
+            transform-origin: bottom right;
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+        }
+
+        .share-panel.open {
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+        }
+
+        .share-panel-head {
+            background: linear-gradient(160deg, var(--primary-navy) 0%, var(--primary-blue) 100%);
+            color: #fff;
+            padding: 0.9rem 1.1rem;
+        }
+
+        .share-panel-title {
+            font-weight: 900;
+            font-size: 1.05rem;
+            margin: 0;
+        }
+
+        .share-panel-sub {
+            color: var(--accent-yellow);
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin: 0.15rem 0 0;
+        }
+
+        .share-panel-body {
+            padding: 0.6rem;
+        }
+
+        .share-option {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            width: 100%;
+            padding: 0.55rem 0.7rem;
+            border: none;
+            border-radius: 12px;
+            background: none;
+            color: var(--primary-navy);
+            font-size: 0.98rem;
+            font-weight: 700;
+            font-family: inherit;
+            text-decoration: none;
+            text-align: left;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .share-option:hover {
+            background: #f1f5f9;
+        }
+
+        .share-option i {
+            width: 2.1rem;
+            height: 2.1rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.05rem;
+            flex-shrink: 0;
+        }
+
+        .share-option .si-line { background: var(--line-color); }
+        .share-option .si-fb { background: var(--fb-color); }
+        .share-option .si-threads { background: #000; }
+        .share-option .si-copy { background: linear-gradient(135deg, #ff5722, #ff8c42); }
+        .share-option .si-more { background: var(--primary-blue); }
+
         /* 頁尾 */
         footer {
             background-color: var(--primary-navy);
@@ -1137,7 +1330,7 @@
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
+            .hero h1 { font-size: clamp(1.6rem, 8vw, 2.2rem); }
             .hero-subtitle { font-size: 1.3rem; }
             .section-title { font-size: 2rem; }
 
@@ -1165,6 +1358,11 @@
                 font-size: 1.3rem;
             }
 
+            .share-panel {
+                right: calc(100% + 10px);
+                width: 230px;
+            }
+
             /* 頁尾在手機版改直式排列，避免標題被擠壓斷行 */
             .footer-content {
                 flex-direction: column;
@@ -1184,6 +1382,28 @@
             .custom-table td {
                 padding: 1rem 0.9rem;
                 font-size: 0.95rem;
+            }
+
+            /* 生活資訊表格：手機版改上下排列，讓垃圾車照片卡片有完整寬度 */
+            .custom-table thead {
+                display: none;
+            }
+
+            .custom-table tr,
+            .custom-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .custom-table td:first-child {
+                background: #f1f5f9;
+                padding: 0.8rem 0.9rem;
+                border-bottom: none;
+            }
+
+            /* 交流圈卡片：縮小內距，避免按鈕文字斷行 */
+            .social-card {
+                padding: 1.8rem 1.2rem;
             }
         }
     </style>
@@ -1221,7 +1441,7 @@
 
     <!-- 頂部形象 Banner -->
     <div class="top-banner">
-        <img src="images/banner1.png" alt="港富里里長候選人 陳彥良‧創新思維‧實踐共好 智慧社區×樂齡共好×在地經濟×宜居生活">
+        <img src="images/banner2.png" alt="港富里里長候選人 陳彥良‧創新思維‧實踐共好 智慧社區×樂齡共好×在地經濟×宜居生活">
     </div>
 
     <div class="banner-gap"></div>
@@ -1236,6 +1456,8 @@
         <div class="hero-buttons">
             <a href="https://line.me/R/ti/p/@157qeahe" target="_blank" class="btn btn-line"><i class="fa-brands fa-line"></i> LINE 社群</a>
             <a href="https://www.facebook.com/share/19dhV7iWk3/?mibextid=wwXIfr" target="_blank" class="btn btn-fb"><i class="fa-brands fa-facebook"></i> FB 粉絲專頁</a>
+            <a href="https://www.instagram.com/c.yan_liang?psln=YmRnYXI5YXR2MTZ5" target="_blank" class="btn btn-ig"><i class="fa-brands fa-instagram"></i> IG 粉絲頁</a>
+            <a href="https://www.threads.com/@c.yan_liang?igshid=NTc4MTIwNjQ2YQ==" target="_blank" class="btn btn-threads"><i class="fa-brands fa-threads"></i> Threads 粉絲頁</a>
             <a href="https://forms.gle/MLXCJ6wX6omPMW8dA" target="_blank" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> 線上反映建言</a>
             <a href="https://forms.gle/LhYSHsf6LiD42NUo7" target="_blank" class="btn" style="background-color: var(--accent-purple); color: #fff;"><i class="fa-solid fa-hand-holding-heart"></i> <span style="white-space: nowrap;">港富競選</span> <span style="white-space: nowrap;">志工招募</span></a>
         </div>
@@ -1249,11 +1471,12 @@
         </div>
         <div class="candidate-card">
             <div class="candidate-img-box">
-                <img src="images/professional.png" alt="陳彥良形象照" class="candidate-img">
+                <img src="images/professional2.png" alt="陳彥良形象照" class="candidate-img">
             </div>
             <div class="candidate-info">
-                <h3 style="font-size: 2.5rem; color: var(--primary-navy); font-weight: 900;">陳彥良 <span style="font-size: 1.2rem; color: var(--text-muted); font-weight: normal;">(港富里里長候選人)</span></h3>
+                <h3 style="font-size: 2.5rem; color: var(--primary-navy); font-weight: 900;"><img src="images/num.png" alt="1號" style="height: 1.2em; width: auto; vertical-align: middle; margin-right: 0.4rem;">陳彥良 <span style="font-size: 1.2rem; color: var(--text-muted); font-weight: normal; white-space: nowrap;">(港富里里長候選人)</span></h3>
                 <div class="candidate-quote">
+                    民國70年內湖出生<br />
                     港富土生土長青年<br />
                     具備行銷管理碩士背景與實務經驗<br />
                     以創新行動力回饋家鄉、創造港富新活力！
@@ -1588,6 +1811,54 @@
                     <p class="event-note">行程請洽里辦公室</p>
                 </div>
             </div>
+
+            <div class="event-card">
+                <div class="event-date-badge">
+                    <span class="event-date-month">10月</span>
+                    <span class="event-date-day">31</span>
+                    <span class="event-date-weekday">(六)</span>
+                </div>
+                <div class="event-body">
+                    <h3 class="event-title">萬聖節活動</h3>
+                    <div class="event-meta">
+                        <span><i class="fa-solid fa-location-dot"></i>內湖國小北後門</span>
+                    </div>
+                    <button type="button" class="event-note-toggle"><i class="fa-solid fa-chevron-down"></i>查看活動內容</button>
+                    <p class="event-note">活動時間 16-18  參加活動領取好禮</p>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-date-badge">
+                    <span class="event-date-month">11月</span>
+                    <span class="event-date-day">14</span>
+                    <span class="event-date-weekday">(六)</span>
+                </div>
+                <div class="event-body">
+                    <h3 class="event-title">流感疫苗注射</h3>
+                    <div class="event-meta">
+                        <span><i class="fa-solid fa-location-dot"></i>內湖國小北後門</span>
+                    </div>
+                    <button type="button" class="event-note-toggle"><i class="fa-solid fa-chevron-down"></i>查看活動內容</button>
+                    <p class="event-note">50歲以上民眾 攜帶健保卡、 身分證</p>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-date-badge">
+                    <span class="event-date-month">11月</span>
+                    <span class="event-date-day">28</span>
+                    <span class="event-date-weekday">(六)</span>
+                </div>
+                <div class="event-body">
+                    <h3 class="event-title">市長 議長 里長 投票日</h3>
+                    <div class="event-meta">
+                        <span><i class="fa-solid fa-location-dot"></i>選舉公報各投開票所</span>
+                    </div>
+                    <button type="button" class="event-note-toggle"><i class="fa-solid fa-chevron-down"></i>查看活動內容</button>
+                    <p class="event-note">上午 8:00 至下午 4:00 <br>攜帶身分證、 印章、投票通知單</p>
+                </div>
+            </div>
         </div>
         <div style="text-align: center; margin-top: 2rem;">
             <button id="eventsToggleBtn" class="btn btn-primary" style="display: none;">顯示更多活動</button>
@@ -1677,6 +1948,26 @@
                     <a href="https://www.facebook.com/share/19dhV7iWk3/?mibextid=wwXIfr" target="_blank" class="btn btn-fb" style="width: 100%; padding: 0.9rem;"><i class="fa-brands fa-facebook"></i> 按讚追蹤 FB 專頁</a>
                 </div>
 
+                <div class="social-card">
+                    <i class="fa-brands fa-instagram" style="font-size: 3.5rem; color: #dc2743;"></i>
+                    <h3 style="margin-top: 1rem; color: var(--primary-navy); font-weight: 900;">IG 粉絲頁</h3>
+                    <p style="color: var(--text-muted); font-size: 1rem; margin-top: 0.5rem; min-height: 3.4rem;">追蹤陳彥良的日常紀錄、活動照片與限時動態。</p>
+                    <div class="qr-box" style="border-style: solid; padding: 8px;">
+                        <img src="qrcode/ig-qrcode.png" alt="Instagram 粉絲頁 QRCode" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <a href="https://www.instagram.com/c.yan_liang?psln=YmRnYXI5YXR2MTZ5" target="_blank" class="btn btn-ig" style="width: 100%; padding: 0.9rem;"><i class="fa-brands fa-instagram"></i> 追蹤 IG 粉絲頁</a>
+                </div>
+
+                <div class="social-card">
+                    <i class="fa-brands fa-threads" style="font-size: 3.5rem; color: #000;"></i>
+                    <h3 style="margin-top: 1rem; color: var(--primary-navy); font-weight: 900;">Threads 粉絲頁</h3>
+                    <p style="color: var(--text-muted); font-size: 1rem; margin-top: 0.5rem; min-height: 3.4rem;">與彥良即時對話，分享你對港富里的想法。</p>
+                    <div class="qr-box" style="border-style: solid; padding: 8px;">
+                        <img src="qrcode/threads-qrcode.png" alt="Threads 粉絲頁 QRCode" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <a href="https://www.threads.com/@c.yan_liang?igshid=NTc4MTIwNjQ2YQ==" target="_blank" class="btn btn-threads" style="width: 100%; padding: 0.9rem;"><i class="fa-brands fa-threads"></i> 追蹤 Threads</a>
+                </div>
+
                 <!-- 線上反映建言：連結 Google 表單 -->
                 <div class="social-card">
                     <i class="fa-solid fa-comment-dots" style="font-size: 3.5rem; color: var(--accent-orange);"></i>
@@ -1724,10 +2015,52 @@
                             <p><b>每週一、二、四、五、六 行駛清運週三與週日固定停收。</b></p>
                             <br />
                             <p><b>收垃圾時間/地點:</b></p>
-                            <p>1.	(18:00-18:15) 臺北市內湖區港墘路1巷和內湖路1段737巷口 (桂竹宮旁)</p>
-                            <p>2.	(18:30-19:00) 臺北市內湖區內湖路2段82號 (內湖國小正門旁 往碧湖公園)</p>
-                            <p>3.	(21:00-21:15) 臺北市內湖區內湖路2段11號 (內湖國小正門旁 往麥當勞)</p>
-                            <p>4.	(22:00-22:40) 臺北市內湖區港墘路83號(港富立體停車場旁)</p>
+                            <div class="garbage-grid">
+                                <div class="garbage-spot">
+                                    <div class="garbage-photo">
+                                        <img src="images/9-1.jpg" alt="垃圾車停靠點1：桂竹宮旁" loading="lazy">
+                                        <span class="garbage-num">1</span>
+                                    </div>
+                                    <div class="garbage-text">
+                                        <div class="garbage-time"><i class="fa-regular fa-clock"></i> 18:00-18:15</div>
+                                        <div class="garbage-addr">臺北市內湖區港墘路1巷和內湖路1段737巷口</div>
+                                        <div class="garbage-note"><i class="fa-solid fa-location-dot"></i> 桂竹宮旁</div>
+                                    </div>
+                                </div>
+                                <div class="garbage-spot">
+                                    <div class="garbage-photo">
+                                        <img src="images/9-2.jpg" alt="垃圾車停靠點2：內湖國小正門旁 往碧湖公園" loading="lazy">
+                                        <span class="garbage-num">2</span>
+                                    </div>
+                                    <div class="garbage-text">
+                                        <div class="garbage-time"><i class="fa-regular fa-clock"></i> 18:30-19:00</div>
+                                        <div class="garbage-addr">臺北市內湖區內湖路2段82號</div>
+                                        <div class="garbage-note"><i class="fa-solid fa-location-dot"></i> 內湖國小正門旁 往碧湖公園</div>
+                                    </div>
+                                </div>
+                                <div class="garbage-spot">
+                                    <div class="garbage-photo">
+                                        <img src="images/9-3.jpg" alt="垃圾車停靠點3：內湖國小正門旁 往麥當勞" loading="lazy">
+                                        <span class="garbage-num">3</span>
+                                    </div>
+                                    <div class="garbage-text">
+                                        <div class="garbage-time"><i class="fa-regular fa-clock"></i> 21:00-21:15</div>
+                                        <div class="garbage-addr">臺北市內湖區內湖路2段11號</div>
+                                        <div class="garbage-note"><i class="fa-solid fa-location-dot"></i> 內湖國小正門旁 往麥當勞</div>
+                                    </div>
+                                </div>
+                                <div class="garbage-spot">
+                                    <div class="garbage-photo">
+                                        <img src="images/9-4.jpg" alt="垃圾車停靠點4：港富立體停車場旁" loading="lazy">
+                                        <span class="garbage-num">4</span>
+                                    </div>
+                                    <div class="garbage-text">
+                                        <div class="garbage-time"><i class="fa-regular fa-clock"></i> 22:00-22:40</div>
+                                        <div class="garbage-addr">臺北市內湖區港墘路83號</div>
+                                        <div class="garbage-note"><i class="fa-solid fa-location-dot"></i> 港富立體停車場旁</div>
+                                    </div>
+                                </div>
+                            </div>
                             <br />
                             <p><b>收運品項與分天分類</b></p>
                             <p>一般垃圾：每週一、二、四、五、六皆可收運，須使用臺北市專用垃圾袋。</p>
@@ -1805,6 +2138,28 @@
         <a href="https://www.facebook.com/share/19dhV7iWk3/?mibextid=wwXIfr" target="_blank" class="fab-btn fab-fb" title="追蹤 Facebook">
             <i class="fa-brands fa-facebook-f"></i>
         </a>
+        <a href="https://www.instagram.com/c.yan_liang?psln=YmRnYXI5YXR2MTZ5" target="_blank" class="fab-btn fab-ig" title="追蹤 Instagram">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.threads.com/@c.yan_liang?igshid=NTc4MTIwNjQ2YQ==" target="_blank" class="fab-btn fab-threads" title="追蹤 Threads">
+            <i class="fa-brands fa-threads"></i>
+        </a>
+        <div class="share-wrap">
+            <div class="share-panel" id="sharePanel" role="menu">
+                <div class="share-panel-head">
+                    <p class="share-panel-title">分享給親友</p>
+                    <p class="share-panel-sub">一起支持 1 號 陳彥良</p>
+                </div>
+                <div class="share-panel-body">
+                <a class="share-option" data-share="line" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-line si-line"></i>分享到 LINE</a>
+                <a class="share-option" data-share="fb" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f si-fb"></i>分享到 Facebook</a>
+                <a class="share-option" data-share="threads" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-threads si-threads"></i>分享到 Threads</a>
+                <button type="button" class="share-option" data-share="copy"><i class="fa-solid fa-link si-copy"></i><span>複製網址</span></button>
+                <button type="button" class="share-option" data-share="more" hidden><i class="fa-solid fa-ellipsis si-more"></i>更多分享方式</button>
+                </div>
+            </div>
+            <button type="button" class="fab-btn fab-share" id="shareFab" title="分享此網站" aria-label="分享此頁" aria-haspopup="true" aria-expanded="false" aria-controls="sharePanel"><i class="fa-solid fa-share-nodes"></i></button>
+        </div>
     </div>
 
     <!-- 頁尾 -->
@@ -1888,8 +2243,8 @@
                 });
             });
 
-            // 活動列表：預設顯示前 6 筆，之後每次點擊多顯示 6 筆，避免一次跳出一大串
-            var BATCH_SIZE = 6;
+            // 活動列表：預設顯示前 8 筆，之後每次點擊多顯示 8 筆，避免一次跳出一大串
+            var BATCH_SIZE = 8;
             var cards = Array.prototype.slice.call(document.querySelectorAll('.event-card'));
             var btn = document.getElementById('eventsToggleBtn');
             var visibleCount = Math.min(BATCH_SIZE, cards.length);
@@ -1940,6 +2295,75 @@
 
                 visibleCount += nextBatch.length;
                 updateButton();
+            });
+        })();
+        // 右下角分享按鈕：LINE / Facebook / Threads / 複製網址 / 系統分享
+        (function () {
+            var fab = document.getElementById('shareFab');
+            var panel = document.getElementById('sharePanel');
+            if (!fab || !panel) return;
+
+            // 本機預覽 (file://) 時改用正式網址分享
+            var shareUrl = /^https?:/.test(location.protocol)
+                ? location.origin + location.pathname
+                : 'https://chenforgangfu.github.io/';
+            var shareText = '港富里里長候選人 陳彥良｜創新思維 ‧ 實踐共好';
+            var u = encodeURIComponent(shareUrl);
+            var links = {
+                line: 'https://social-plugins.line.me/lineit/share?url=' + u,
+                fb: 'https://www.facebook.com/sharer/sharer.php?u=' + u,
+                threads: 'https://www.threads.net/intent/post?text=' + encodeURIComponent(shareText + ' ' + shareUrl)
+            };
+            Object.keys(links).forEach(function (k) {
+                panel.querySelector('[data-share="' + k + '"]').href = links[k];
+            });
+
+            var moreBtn = panel.querySelector('[data-share="more"]');
+            if (navigator.share) moreBtn.hidden = false;
+
+            function setOpen(open) {
+                panel.classList.toggle('open', open);
+                fab.setAttribute('aria-expanded', open ? 'true' : 'false');
+            }
+
+            fab.addEventListener('click', function (e) {
+                e.stopPropagation();
+                setOpen(!panel.classList.contains('open'));
+            });
+            panel.addEventListener('click', function (e) { e.stopPropagation(); });
+            document.addEventListener('click', function () { setOpen(false); });
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+
+            var copyBtn = panel.querySelector('[data-share="copy"]');
+            var copyLabel = copyBtn.querySelector('span');
+            function copied() {
+                copyLabel.textContent = '已複製網址！';
+                setTimeout(function () { copyLabel.textContent = '複製網址'; }, 2000);
+            }
+            function fallbackCopy() {
+                var ta = document.createElement('textarea');
+                ta.value = shareUrl;
+                ta.style.position = 'fixed';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.select();
+                try { document.execCommand('copy'); copied(); } catch (err) { window.prompt('請複製以下網址：', shareUrl); }
+                document.body.removeChild(ta);
+            }
+            copyBtn.addEventListener('click', function () {
+                if (navigator.clipboard && window.isSecureContext) {
+                    navigator.clipboard.writeText(shareUrl).then(copied, fallbackCopy);
+                } else {
+                    fallbackCopy();
+                }
+            });
+
+            moreBtn.addEventListener('click', function () {
+                navigator.share({ title: document.title, text: shareText, url: shareUrl }).catch(function () {});
+            });
+
+            panel.querySelectorAll('a.share-option').forEach(function (a) {
+                a.addEventListener('click', function () { setOpen(false); });
             });
         })();
     </script>
